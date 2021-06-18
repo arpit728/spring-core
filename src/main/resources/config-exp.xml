@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:p="http://www.springframework.org/schema/p"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+                http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id="a1" class="com.acecademy.exp.Address">
+        <property name="city">
+            <value>Mumbai</value>
+        </property>
+
+        <property name="postalCode">
+            <value>4000064</value>
+        </property>
+    </bean>
+
+    <bean id="a2" class="com.acecademy.exp.Address">
+        <property name="city" value="Delhi"/>
+        <property name="postalCode" value="4000022"/>
+    </bean>
+
+    <bean id="a3" class="com.acecademy.exp.Address" p:city="Delhi" p:postalCode="4000022"/>
+
+    <bean id="e1" class="com.acecademy.exp.Employee">
+        <property name="phones">
+            <list>
+                <value>31231</value>
+                <value>44232</value>
+                <value>442329</value>
+                <value>8678</value>
+            </list>
+        </property>
+        <property name="courses">
+            <map>
+                <entry key="Java" value="2 months"/>
+                <entry key="DSA" value=" 3 months"/>
+            </map>
+        </property>
+        <property name="address" ref="a1"/>
+    </bean>
+    <!--Example of constructor injection-->
+
+    <bean id="a4" class="com.acecademy.exp.Address">
+        <constructor-arg value="Kolkata"/>
+        <constructor-arg value="23213123" type="int"/>
+    </bean>
+
+    <bean id="e3" class="com.acecademy.exp.Employee">
+        <constructor-arg>
+            <list>
+                <value>123</value>
+                <value>456</value>
+                <value>789</value>
+            </list>
+        </constructor-arg>
+        <constructor-arg>
+            <map>
+                <entry key="Java" value="2 months"/>
+                <entry key="DSA" value="3 months"/>
+            </map>
+        </constructor-arg>
+
+<!--        <constructor-arg ref="a4"/>-->
+
+    </bean>
+</beans>
